@@ -16,15 +16,10 @@ export default function () {
     <div className="flex h-screen w-full">
       <div className="flex-none w-48 border-r">
         <div className="flex flex-col h-full py-4 text-sm">
-          <div className="flex items-center justify-center h-10">
-            <Link className="font-bold" href="#">
-              Acme Inc
-            </Link>
-          </div>
           <nav className="flex-1 flex flex-col justify-between items-center py-1">
             <div className="flex  flex-col gap-6 ">
               <Link
-                className="flex mt-10 items-center gap-4 text-sm font-medium rounded-md/none "
+                className="flex items-center gap-4 text-sm font-medium rounded-md/none "
                 href="#">
                 <HomeIcon className="w-6 h-6" />
                 Home

@@ -10,7 +10,7 @@ export default function () {
           <MountainIcon className="h-6 w-6" />
           <span className="font-semibold">Acme Inc</span>
         </Link>
-        <nav className="hidden space-x-2 md:flex items-center text-sm font-medium">
+        <nav className="hidden space-x-2 md:flex md:gap-3 items-center text-sm font-medium">
           <Link className="text-gray-900 dark:text-gray-50" href="#">
             Home
           </Link>
