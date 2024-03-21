@@ -14,7 +14,7 @@ import { TableCell, TableRow, TableBody, Table } from "@/components/ui/table";
 export default function () {
   return (
     <div className="flex h-screen w-full">
-      <div className="flex-none w-48 border-r">
+      {/* <div className="flex-none w-48 border-r">
         <div className="flex flex-col h-full py-4 text-sm">
           <nav className="flex-1 flex flex-col justify-between items-center py-1">
             <div className="flex  flex-col gap-6 ">
@@ -65,7 +65,7 @@ export default function () {
             </div>
           </nav>
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-col flex-1 gap-4 p-4 md:gap-8 md:p-10">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
