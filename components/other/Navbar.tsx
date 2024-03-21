@@ -5,13 +5,13 @@ import DarkMode from "./DarkMode";
 export default function () {
   return (
     <div className="w-full">
-      <header className="flex items-center justify-between px-4 h-14 border-b md:px-6">
+      <header className="flex items-center justify-between px-3 h-14 border-b my-4 md:px-6">
         <Link className="flex items-center gap-2" href="#">
           <MountainIcon className="h-6 w-6" />
           <span className="font-semibold">Acme Inc</span>
         </Link>
-        <nav className="hidden space-x-2 md:flex md:gap-3 items-center text-sm font-medium">
-          <Link className="text-gray-900 dark:text-gray-50" href="#">
+        <nav className="hidden space-x-2 md:flex md:gap-3 items-center text-lg font-medium">
+          <Link className="text-gray-900 dark:text-gray-50" href="/">
             Home
           </Link>
           <Link href="#">Features</Link>
@@ -19,8 +19,12 @@ export default function () {
           <Link href="#">Contact</Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Button variant="outline">Sign in</Button>
-          <Button>Sign Up</Button>
+          <Link href="/auth/login">
+            <Button variant="outline">Login</Button>
+          </Link>
+          <Link href="/auth/register">
+            <Button>Register</Button>
+          </Link>
           <DarkMode />
         </div>
       </header>

@@ -26,7 +26,7 @@ export default function Component() {
         </p>
         <Link
           className="inline-flex items-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50"
-          href="#">
+          href="/">
           Return Home
         </Link>
       </div>
