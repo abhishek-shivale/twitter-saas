@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "@/server/database";
-import {compare} from 'bcrypt'
+import { compare } from "bcrypt";
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -17,16 +17,20 @@ const handler = NextAuth({
           },
           select: {
             id: true,
-            password: true
+            password: true,
           },
         });
 
-        if(user && await compare(credentials.password,user.password)){
-          return {
-            id:user.id
-          }
+        if (!user) {
+          return null;
         }
-        return null
+        const comparePass = await compare(credentials.password, user.password);
+        if (!comparePass) {
+          return null;
+        }
+        return {
+          id: user?.id,
+        };
       },
     }),
   ],
