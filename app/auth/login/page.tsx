@@ -1,23 +1,16 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/gk517MqxRqO
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
+import LoginComponent from "@/components/other/LoginComponent";
 import {
-  CardTitle,
+  Card,
+  CardContent,
   CardDescription,
   CardHeader,
-  CardContent,
-  Card,
+  CardTitle,
 } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export default function () {
   return (
-    <Card className="mx-auto mt-8 max-w-sm">
+    <Card className="mx-auto mt-24 max-w-sm">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold">Login</CardTitle>
         <CardDescription>
@@ -25,32 +18,7 @@ export default function () {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              placeholder="m@example.com"
-              required
-              type="email"
-            />
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center">
-              <Label htmlFor="password">Password</Label>
-              <Link className="ml-auto inline-block text-sm underline" href="#">
-                Forgot your password?
-              </Link>
-            </div>
-            <Input id="password" required type="password" />
-          </div>
-          <Button className="w-full" type="submit">
-            Login
-          </Button>
-          <Button className="w-full" variant="outline">
-            Login with Google
-          </Button>
-        </div>
+        <LoginComponent />
         <div className="mt-4 text-center text-sm">
           Don't have an account?
           <Link className="underline" href="/auth/register">

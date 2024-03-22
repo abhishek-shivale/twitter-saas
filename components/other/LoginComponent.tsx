@@ -52,11 +52,11 @@ export default function LoginForm() {
         toast({
           title: "Error",
           description:
-            "Registration failed. Please check the details provided.",
+            "Login failed. Please check the details provided.",
         });
       }
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error("Login error:", error);
       toast({
         title: "Error",
         description: "An unexpected error occurred. Please try again later.",
