@@ -1,19 +1,22 @@
 "use client";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
 import { validateEmail, validatePassword } from "./validation";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { CreateAccount } from "@/server/Routes";
 
 export default function LoginForm() {
   const [email, setEmail] = useState<string>("");
+  const searchParams = useSearchParams();
   const [password, setPassword] = useState<string>("");
   const { toast } = useToast();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+
+  const callbackUrl = searchParams.get("callbackUrl") || "/profile";
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,8 +34,15 @@ export default function LoginForm() {
 
     setIsLoading(true);
     try {
-      const Logined = await CreateAccount(email, password);
-      if (Logined) {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: email,
+        password: password,
+        callbackUrl,
+      });
+      console.log(res);
+
+      if (res?.ok === true) {
         toast({
           title: "Success!",
           description: "Logined successfully",
