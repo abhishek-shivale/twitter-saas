@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "app/not-found.tsx",
     "app/pages/404.js",
-    "server/database.ts"
+    "server-compo/database.ts"
   ],
   "exclude": ["node_modules"]
 }

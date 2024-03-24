@@ -1,11 +1,11 @@
-"use client"
-import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast"; 
+"use client";
+import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
-import {validateEmail, validatePassword} from "./validation"
+import { useState } from "react";
 import { Button } from "../ui/button";
-import { Label } from "../ui/label";
 import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { validateEmail, validatePassword } from "./validation";
 
 export default function RegistrationForm() {
   const [email, setEmail] = useState<string>("");
@@ -14,6 +14,7 @@ export default function RegistrationForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -32,18 +33,18 @@ export default function RegistrationForm() {
       const res = await fetch("/api/signup", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), 
+        body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json()
+      const data = await res.json();
       if (data.success === true) {
         toast({
           title: "Success!",
           description: "Account created successfully",
         });
-        router.push("/auth/register");
+        router.push("/auth/login");
       } else if (data.success === false) {
         toast({
           title: "Unsuccess!",

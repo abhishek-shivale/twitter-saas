@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/server/database";
+import prisma from "@/server-compo/database";
 import { compare } from "bcrypt";
 const handler = NextAuth({
   providers: [
@@ -29,11 +29,26 @@ const handler = NextAuth({
           return null;
         }
         return {
-          id: user?.id,
+          id:user?.id,
+          userId: user?.id,
         };
       },
     }),
   ],
+  // callbacks: {
+  //   jwt: async ({ user, token }: any) => {
+  //     if (user) {
+  //       token.uid = user.id;
+  //     }
+  //     return token;
+  //   },
+  //   session: ({ session, token, user }: any) => {
+  //     if (session.user) {
+  //       session.user.id = token.uid;
+  //     }
+  //     return session;
+  //   },
+  // },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/auth/signin",
@@ -43,5 +58,4 @@ const handler = NextAuth({
     newUser: "/auth/new-user",
   },
 });
-
 export { handler as GET, handler as POST };
