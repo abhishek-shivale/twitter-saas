@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import DarkMode from "./DarkMode";
+import LeftSide from "./LeftSide";
 
 export default function () {
   return (
@@ -18,15 +17,8 @@ export default function () {
           <Link href="#">Pricing</Link>
           <Link href="#">Contact</Link>
         </nav>
-        <div className="flex items-center gap-4">
-          <Link href="/auth/login">
-            <Button variant="outline">Login</Button>
-          </Link>
-          <Link href="/auth/register">
-            <Button>Register</Button>
-          </Link>
-          <DarkMode />
-        </div>
+       
+          <LeftSide />
       </header>
     </div>
   );

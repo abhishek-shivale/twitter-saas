@@ -29,8 +29,9 @@ const handler = NextAuth({
           return null;
         }
         return {
-          id:user?.id,
-          userId: user?.id,
+          id: user?.id,
+          name: user?.id,
+          email: credentials.email,
         };
       },
     }),
