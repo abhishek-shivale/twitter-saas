@@ -1,24 +1,32 @@
+"use client"
 import Link from "next/link";
 import LeftSide from "./LeftSide";
+import MiddelNavbar from "./middelNavbar";
+import { useSession } from "next-auth/react";
 
 export default function () {
+   const session = useSession();
+   const status = JSON.stringify(session.status);
   return (
     <div className="w-full">
       <header className="flex items-center justify-between px-3 h-14 border-b my-4 md:px-6">
-        <Link className="flex items-center gap-2" href="#">
-          <MountainIcon className="h-6 w-6" />
-          <span className="font-semibold">Acme Inc</span>
-        </Link>
-        <nav className="hidden space-x-2 md:flex md:gap-3 items-center text-lg font-medium">
-          <Link className="text-gray-900 dark:text-gray-50" href="/">
-            Home
-          </Link>
-          <Link href="#">Features</Link>
-          <Link href="#">Pricing</Link>
-          <Link href="#">Contact</Link>
-        </nav>
-       
-          <LeftSide />
+        {status === `"authenticated"` ? (
+          <>
+            <Link className="flex items-center gap-2" href="/user">
+              <MountainIcon className="h-6 w-6" />
+              <span className="font-semibold">Acme Inc</span>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link className="flex items-center gap-2" href="/">
+              <MountainIcon className="h-6 w-6" />
+              <span className="font-semibold">Acme Inc</span>
+            </Link>
+          </>
+        )}
+        <MiddelNavbar />
+        <LeftSide />
       </header>
     </div>
   );

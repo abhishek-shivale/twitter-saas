@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client";
 import {
   CardTitle,
   CardHeader,
@@ -10,8 +10,22 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TableCell, TableRow, TableBody, Table } from "@/components/ui/table";
+import { useState } from "react";
+import { toast } from "@/components/ui/use-toast";
 
 export default function () {
+  const [clientId, setClientId] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+  function ClickHandler() {
+    if (clientId === "" || clientSecret === "") {
+      toast({
+        title: "Invalid Input",
+        description: "Please Try Again!!",
+      });
+      return;
+    }
+    
+  }
   return (
     <div className="flex h-screen w-full">
       {/* <div className="flex-none w-48 border-r">
@@ -79,18 +93,32 @@ export default function () {
                 <Label className="text-sm" htmlFor="client-id">
                   Client ID
                 </Label>
-                <Input id="client-id" placeholder="Enter client ID" />
+                <Input
+                  onChange={(e) => {
+                    setClientId(e.target.value);
+                  }}
+                  id="client-id"
+                  placeholder="Enter client ID"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <Label className="text-sm" htmlFor="client-secret">
                   Client Secret
                 </Label>
-                <Input id="client-secret" placeholder="Enter client secret" />
+                <Input
+                  onChange={(e) => {
+                    setClientSecret(e.target.value);
+                  }}
+                  id="client-secret"
+                  placeholder="Enter client secret"
+                />
               </div>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="ml-auto">Save</Button>
+            <Button onClick={ClickHandler} className="ml-auto">
+              Save
+            </Button>
           </CardFooter>
         </Card>
         <Card>

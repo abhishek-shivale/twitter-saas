@@ -24,11 +24,11 @@ function Profile() {
         <div />
         <div>
           <div className="flex flex-col gap-1.5 p-4">
-            <Link className="flex items-center gap-2" href="#">
+            <Link className="flex items-center gap-2" href="/user/profile">
               <UserIcon className="w-4 h-4" />
               <span>Profile</span>
             </Link>
-            <Link className="flex items-center gap-2" href="#">
+            <Link className="flex items-center gap-2" href="/user/settings">
               <SettingsIcon className="w-4 h-4" />
               <span>Settings</span>
             </Link>

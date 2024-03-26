@@ -47,7 +47,7 @@ export default function LoginForm() {
           title: "Success!",
           description: "Logined successfully",
         });
-        router.push("/");
+        router.push("/user");
       } else {
         toast({
           title: "Error",
